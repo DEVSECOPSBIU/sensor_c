@@ -1,0 +1,25 @@
+name: Run Parasoft C Analysis
+
+on:
+  push:
+    paths:
+      - '**.c'
+      - '**.h'
+
+jobs:
+  run-parasoft-analysis:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Generate Unique Build ID
+        run: echo "BUILD_ID=$(date +%s)" >> $GITHUB_ENV
+
+      - name: Run Parasoft C++test in Docker
+        run: |
+          docker exec c_project cpptestcli -config "builtin://SEI CERT C Rules" \
+            -compiler gcc_10-64 \
+            -property build.id="c_project-build_${{ env.BUILD_ID }}" \
+            -publish -- /usr/bin/gcc -c /home/parasoft/workspace_BIU_TEST/sensor_c/sensor.c -o /home/parasoft/workspace_BIU_TEST/sensor_c/sensor.o
