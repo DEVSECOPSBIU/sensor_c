@@ -24,7 +24,7 @@ const int STATUS_OK = 0;
 const int STATUS_FAILED = 1;
 const int STATUS_STOPPED = 2;
 
-const int MAX_NUMBER_OF_SAMPLES = 31;
+const int MAX_NUMBER_OF_SAMPLES = 30;
 
 int readSensor(int *value) {
     static int v = 0;
