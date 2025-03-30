@@ -1,0 +1,130 @@
+<->
+<F>/home/parasoft/workspace_BIU_TEST/sensor_c/sensor_c.c
+<c>INTERNAL-GLOBAL-COMPATDECLS
+<b>EXTERN_LINKAGE_OBJ_NAME='STATUS_OK', EXTERN_LINKAGE_OBJ_TYPE=['const', 'int']
+<l>23
+<k>11
+<s>false
+<N>
+<f>
+<L>0
+<->
+<F>/home/parasoft/workspace_BIU_TEST/sensor_c/sensor_c.c
+<c>INTERNAL-GLOBAL-COMPATDECLS
+<b>EXTERN_LINKAGE_OBJ_NAME='STATUS_FAILED', EXTERN_LINKAGE_OBJ_TYPE=['const', 'int']
+<l>24
+<k>11
+<s>false
+<N>
+<f>
+<L>0
+<->
+<F>/home/parasoft/workspace_BIU_TEST/sensor_c/sensor_c.c
+<c>INTERNAL-GLOBAL-COMPATDECLS
+<b>EXTERN_LINKAGE_OBJ_NAME='STATUS_STOPPED', EXTERN_LINKAGE_OBJ_TYPE=['const', 'int']
+<l>25
+<k>11
+<s>false
+<N>
+<f>
+<L>0
+<->
+<F>/home/parasoft/workspace_BIU_TEST/sensor_c/sensor_c.c
+<c>INTERNAL-GLOBAL-COMPATDECLS
+<b>EXTERN_LINKAGE_OBJ_NAME='MAX_NUMBER_OF_SAMPLES', EXTERN_LINKAGE_OBJ_TYPE=['const', 'int']
+<l>27
+<k>11
+<s>false
+<N>
+<f>
+<L>0
+<->
+<F>/home/parasoft/workspace_BIU_TEST/sensor_c/sensor_c.c
+<c>INTERNAL-GLOBAL-COMPATDECLS
+<b>EXTERN_LINKAGE_OBJ_NAME='messages', EXTERN_LINKAGE_OBJ_TYPE=['*', '*', 'char']
+<l>36
+<k>8
+<s>false
+<N>
+<f>
+<L>0
+<->
+<F>/home/parasoft/workspace_BIU_TEST/sensor_c/sensor_c.c
+<c>INTERNAL-GLOBAL-COMPATDECLS
+<b>EXTERN_LINKAGE_FUNC_SIGN='readSensor', EXTERN_LINKAGE_FUNC_RET_TYPE=['int']
+<l>29
+<k>5
+<s>false
+<N>
+<f>
+<L>0
+<->
+<F>/home/parasoft/workspace_BIU_TEST/sensor_c/sensor_c.c
+<c>INTERNAL-GLOBAL-COMPATDECLS
+<b>EXTERN_LINKAGE_FUNC_SIGN='initialize', EXTERN_LINKAGE_FUNC_RET_TYPE=['void']
+<l>42
+<k>6
+<s>false
+<N>
+<f>
+<L>0
+<->
+<F>/home/parasoft/workspace_BIU_TEST/sensor_c/sensor_c.c
+<c>INTERNAL-GLOBAL-COMPATDECLS
+<b>EXTERN_LINKAGE_FUNC_SIGN='finalize', EXTERN_LINKAGE_FUNC_RET_TYPE=['void']
+<l>65
+<k>6
+<s>false
+<N>
+<f>
+<L>0
+<->
+<F>/home/parasoft/workspace_BIU_TEST/sensor_c/sensor_c.c
+<c>INTERNAL-GLOBAL-COMPATDECLS
+<b>EXTERN_LINKAGE_FUNC_SIGN='printMessage', EXTERN_LINKAGE_FUNC_RET_TYPE=['void']
+<l>75
+<k>6
+<s>false
+<N>
+<f>
+<L>0
+<->
+<F>/home/parasoft/workspace_BIU_TEST/sensor_c/sensor_c.c
+<c>INTERNAL-GLOBAL-COMPATDECLS
+<b>EXTERN_LINKAGE_FUNC_SIGN='reportSensorFailure', EXTERN_LINKAGE_FUNC_RET_TYPE=['void']
+<l>84
+<k>6
+<s>false
+<N>
+<f>
+<L>0
+<->
+<F>/home/parasoft/workspace_BIU_TEST/sensor_c/sensor_c.c
+<c>INTERNAL-GLOBAL-COMPATDECLS
+<b>EXTERN_LINKAGE_FUNC_SIGN='handleSensorValue', EXTERN_LINKAGE_FUNC_RET_TYPE=['void']
+<l>90
+<k>6
+<s>false
+<N>
+<f>
+<L>0
+<->
+<F>/home/parasoft/workspace_BIU_TEST/sensor_c/sensor_c.c
+<c>INTERNAL-GLOBAL-COMPATDECLS
+<b>EXTERN_LINKAGE_FUNC_SIGN='checkTimingFailure', EXTERN_LINKAGE_FUNC_RET_TYPE=['void']
+<l>101
+<k>6
+<s>false
+<N>
+<f>
+<L>0
+<->
+<F>/home/parasoft/workspace_BIU_TEST/sensor_c/sensor_c.c
+<c>INTERNAL-GLOBAL-COMPATDECLS
+<b>EXTERN_LINKAGE_FUNC_SIGN='main', EXTERN_LINKAGE_FUNC_RET_TYPE=['int']
+<l>133
+<k>5
+<s>false
+<N>
+<f>
+<L>0
