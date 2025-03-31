@@ -1,14 +1,18 @@
-name: Run Parasoft C Analysis
+name: Run Parasoft C++ Analysis
 
 on:
   push:
     paths:
-      - '**.c'
+      - '**.cpp'
       - '**.h'
+      - '**.cxx'
+      - '**.hpp'
+      - '**.cc'
+      - '**.hh'
 
 jobs:
   run-parasoft-analysis:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted  # ✅ Ensure it uses self-hosted runner ESL1
 
     steps:
       - name: Checkout Repository
@@ -17,9 +21,19 @@ jobs:
       - name: Generate Unique Build ID
         run: echo "BUILD_ID=$(date +%s)" >> $GITHUB_ENV
 
+      - name: List Running Containers in WSL
+        run: docker ps -a
+
+      - name: Ensure Parasoft Container is Running
+        run: |
+          if [ ! "$(docker ps -q -f name=cpp_project)" ]; then
+            echo "Starting cpp_project container..."
+            docker start cpp_project
+          fi
+
       - name: Run Parasoft C++test in Docker
         run: |
-          docker exec c_project cpptestcli -config "builtin://SEI CERT C Rules" \
+          docker exec cpp_project cpptestcli -config "builtin://SEI CERT C++ Rules" \
             -compiler gcc_10-64 \
-            -property build.id="c_project-build_${{ env.BUILD_ID }}" \
-            -publish -- /usr/bin/gcc -c /home/parasoft/workspace_BIU_TEST/sensor_c/sensor.c -o /home/parasoft/workspace_BIU_TEST/sensor_c/sensor.o
+            -property build.id="cpp_project-build_${{ env.BUILD_ID }}" \
+            -publish -- /usr/bin/g++ -c /home/parasoft/workspace_BIU_TEST/sensor_c/src/sensor_C.cpp -o /home/parasoft/workspace_BIU_TEST/sensor_c/src/sensor_C.o
