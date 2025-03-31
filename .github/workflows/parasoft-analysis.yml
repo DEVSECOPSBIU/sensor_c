@@ -9,7 +9,7 @@ on:
       - '**.hpp'
       - '**.cc'
       - '**.hh'
-  workflow_dispatch:  # Allow manual trigger
+  workflow_dispatch: # Enables manual trigger from GitHub UI
 
 jobs:
   run-parasoft-analysis:
@@ -22,10 +22,13 @@ jobs:
       - name: Generate Unique Build ID
         run: echo "BUILD_ID=$(date +%s)" >> $GITHUB_ENV
 
-      - name: Run Parasoft C++test in Docker
+      - name: Debug Docker Mounts
+        run: docker inspect cpp_project # Checks if workspace is correctly mounted
+
+      - name: Run Parasoft C++ Analysis in Docker
         run: |
-          docker exec cpp_project cpptestcli \
-            -config "builtin://SEI CERT C Rules" \
-            -compiler gcc_10-64 \
-            -property build.id="${dtp_project}-build_id_1" \
-            -publish -- /usr/bin/gcc -c /home/parasoft/workspace_BIU_TEST/sensor_c/sensor_c.c -o /home/parasoft/workspace_BIU_TEST/sensor_c/sensor_c.o
+          docker exec -w /home/parasoft/workspace_BIU_TEST/sensor_c cpp_project \
+          cpptestcli -config "builtin://SEI CERT C Rules" \
+          -compiler gcc_10-64 \
+          -property build.id="cpp_project_build_${{ env.BUILD_ID }}" \
+          -publish -- /usr/bin/gcc -c sensor_c.c -o sensor_c.o
