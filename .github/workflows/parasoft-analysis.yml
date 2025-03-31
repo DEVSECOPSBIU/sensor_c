@@ -5,7 +5,11 @@ on:
     paths:
       - '**.c'
       - '**.h'
-  workflow_dispatch:
+      - '**.cpp'
+      - '**.hpp'
+      - '**.hh'
+
+  workflow_dispatch:  # Allow manual trigger
 
 jobs:
   run-parasoft-analysis:
@@ -21,14 +25,14 @@ jobs:
       - name: Debug Docker Environment
         run: |
           echo "Checking container workspace..."
-          docker exec cpp_project ls -l /home/parasoft/workspace_BIU_TEST/
-          docker exec cpp_project ls -l /home/parasoft/workspace_BIU_TEST/sensor_c/
+          docker exec c_project ls -l /home/parasoft/workspace_BIU_TEST/sensor_c/
 
-      - name: Run Parasoft C++ Analysis in Docker
+      - name: Run Parasoft C++test in Docker
         run: |
-          docker exec cpp_project cpptestcli \
-          -config "builtin://SEI CERT C Rules" \
-          -compiler gcc_10-64 \
-          -property build.id="cpp_project_build_${{ env.BUILD_ID }}" \
-          -input /home/parasoft/workspace_BIU_TEST/sensor_c/sensor_c.c \
-          -publish -- /usr/bin/gcc -c /home/parasoft/workspace_BIU_TEST/sensor_c/sensor_c.c -o /home/parasoft/workspace_BIU_TEST/sensor_c/sensor_c.o
+          docker exec c_project cpptestcli \
+            -config "builtin://SEI CERT C Rules" \
+            -compiler gcc_10-64 \
+            -property build.id="c_project_build_${{ env.BUILD_ID }}" \
+            -publish -- /usr/bin/gcc -c \
+            /home/parasoft/workspace_BIU_TEST/sensor_c/sensor_c.c \
+            -o /home/parasoft/workspace_BIU_TEST/sensor_c/sensor_c.o
