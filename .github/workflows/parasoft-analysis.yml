@@ -9,10 +9,11 @@ on:
       - '**.hpp'
       - '**.cc'
       - '**.hh'
+  workflow_dispatch:  # Add this line
 
 jobs:
   run-parasoft-analysis:
-    runs-on: self-hosted  # ✅ Ensure it uses self-hosted runner ESL1
+    runs-on: self-hosted
 
     steps:
       - name: Checkout Repository
@@ -21,19 +22,9 @@ jobs:
       - name: Generate Unique Build ID
         run: echo "BUILD_ID=$(date +%s)" >> $GITHUB_ENV
 
-      - name: List Running Containers in WSL
-        run: docker ps -a
-
-      - name: Ensure Parasoft Container is Running
-        run: |
-          if [ ! "$(docker ps -q -f name=cpp_project)" ]; then
-            echo "Starting cpp_project container..."
-            docker start cpp_project
-          fi
-
       - name: Run Parasoft C++test in Docker
         run: |
           docker exec cpp_project cpptestcli -config "builtin://SEI CERT C++ Rules" \
             -compiler gcc_10-64 \
             -property build.id="cpp_project-build_${{ env.BUILD_ID }}" \
-            -publish -- /usr/bin/g++ -c /home/parasoft/workspace_BIU_TEST/sensor_c/src/sensor_C.cpp -o /home/parasoft/workspace_BIU_TEST/sensor_c/src/sensor_C.o
+            -publish -- /usr/bin/g++ -c /home/parasoft/workspace_BIU_TEST/sensor_cpp/src/sensor_CPP.cpp -o /home/parasoft/workspace_BIU_TEST/sensor_cpp/src/sensor_CPP.o
