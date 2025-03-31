@@ -1,2 +1,4 @@
 Debug/
 reports/
+.cpptest/
+.parasoft/
