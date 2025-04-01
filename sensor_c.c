@@ -58,12 +58,12 @@ void initialize() {
             exit(EXIT_FAILURE);
         }
 
-        strcpy(messages[VALUE_LOW_MSG], "Low");
+      //  strcpy(messages[VALUE_LOW_MSG], "Low");
         strcpy(messages[VALUE_HIGH_MSG], "High");
         strcpy(messages[ERROR_MSG], "Error occurred");
-        /*snprintf(messages[VALUE_LOW_MSG], 128, "%s", "Low");
-        snprintf(messages[VALUE_HIGH_MSG], 128, "%s", "High");
-        snprintf(messages[ERROR_MSG], 128, "%s", "Error occurred");*/
+        snprintf(messages[VALUE_LOW_MSG], 128, "%s", "Low");
+       // snprintf(messages[VALUE_HIGH_MSG], 128, "%s", "High");
+        //snprintf(messages[ERROR_MSG], 128, "%s", "Error occurred");*/
     }
 }
 
